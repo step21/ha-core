@@ -5,7 +5,8 @@
   "postCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder} && script/setup",
   "postStartCommand": "script/bootstrap",
   "containerEnv": {
-    "PYTHONASYNCIODEBUG": "1"
+    "PYTHONASYNCIODEBUG": "1",
+    "HOME": "/home/node"
   },
   "features": {
     "ghcr.io/devcontainers/features/github-cli:1": {}
@@ -16,7 +17,8 @@
     "-e",
     "GIT_EDITOR=code --wait",
     "--security-opt",
-    "label=disable"
+    "label=disable",
+    "--userns=keep-id"
   ],
   "customizations": {
     "vscode": {
